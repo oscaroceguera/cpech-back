@@ -1,0 +1,22 @@
+version: "3.3"
+services:
+  db:
+    image: "mongo"
+    ports:
+      - 27017:27017
+    volumes:
+      - "mongodata:/data/db"
+  web:
+    depends_on:
+      - db
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      - TZ=America/Mexico_City
+      - LC_CTYPE=en_US.UTF-8
+      - LC_ALL=en_US.UTF-8
+      - PORT=5000
+
+volumes:
+  mongodata:
