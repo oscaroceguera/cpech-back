@@ -18,6 +18,22 @@ exports.addStudent = async (req, res) => {
 
     res.send(doc);
   } catch (error) {
-    res.status(500).send(error.details[0].message);
+    if (error.details[0].message) {
+      return res.status(422).send(error.details[0].message);
+    }
+    
+    res.status(500).send(error);
   }
 }
+
+exports.getStudents = async (req, res) => {
+  try {
+    const doc = await student.find();
+
+    res.send(doc);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+}
+
+
