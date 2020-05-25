@@ -28,7 +28,7 @@ exports.addStudent = async (req, res) => {
 
 exports.getStudents = async (req, res) => {
   try {
-    const doc = await student.find();
+    const doc = await Student.find();
 
     res.send(doc);
   } catch (error) {

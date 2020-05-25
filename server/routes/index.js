@@ -8,9 +8,7 @@ module.exports = app => {
     res.send("Hello from Node.js App \n");
   });
 
-  router.route("/students")
-    .post(student.addStudent)
-    .get(student.getStudents);
+  router.route("/students").post(student.addStudent).get(student.getStudents);
 
   app.use('/api', router)
 }
