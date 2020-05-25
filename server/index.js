@@ -3,7 +3,6 @@ const bodyParser = require("body-parser");
 const cors = require('cors')
 
 const { mongoose } = require("./db/connection");
-// const Student = require("./models/Student.model");
 
 const app = express();
 

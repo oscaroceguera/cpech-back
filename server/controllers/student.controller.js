@@ -19,7 +19,7 @@ exports.addStudent = async (req, res) => {
     res.send(doc);
   } catch (error) {
     if (error.details[0].message) {
-      return res.status(422).send(error.details[0].message);
+      return res.status(422).send({ message: error.details[0].message });
     }
     
     res.status(500).send(error);
